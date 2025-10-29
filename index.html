@@ -2,148 +2,209 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MankHD | Links</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mank</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif; }
     body {
-      background-color: #121212;
-      color: #eaeaea;
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
+      background-color: #0e0e11;
+      color: white;
+      min-height: 100vh;
       padding: 20px;
     }
-    .container {
-      max-width: 800px;
-      margin: auto;
-    }
-    header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    header h1 {
-      font-weight: 600;
-      font-size: 2em;
-      color: #4db8ff;
-    }
-    .notice {
-      background: #1f1f1f;
-      color: #f7b733;
-      padding: 10px 15px;
-      border-radius: 10px;
-      font-size: 0.9em;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    section {
-      margin-bottom: 40px;
+    h1 {
+      font-size: 2.5em;
+      font-weight: 700;
+      background: linear-gradient(90deg, #8a7cfb, #f3af7f);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     h2 {
-      font-size: 1.2em;
-      color: #ffffff;
-      margin-bottom: 15px;
+      margin-top: 30px;
+      font-size: 1.5em;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .lang-btn {
+      font-size: 24px;
+      cursor: pointer;
+      position: relative;
+    }
+    .lang-menu {
+      display: none;
+      position: absolute;
+      top: 40px;
+      right: 0;
+      background-color: #1c1c22;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+    .lang-menu.active {
+      display: block;
+    }
+    .lang-menu div {
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .lang-menu div:hover {
+      background-color: #2e2e33;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
     }
     .card {
-      background: #1e1e1e;
-      padding: 15px 20px;
+      background-color: #1c1c22;
       border-radius: 12px;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      transition: 0.3s;
+      overflow: hidden;
+      padding: 10px;
+      text-align: center;
+      transition: transform 0.2s;
     }
-    .card:hover {
-      background: #2a2a2a;
-      transform: translateY(-2px);
-    }
+    .card:hover { transform: scale(1.03); }
     .card img {
-      width: 24px;
-      height: 24px;
-      margin-right: 15px;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      align-items: center;
       width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
     }
-    .lang {
-      text-align: right;
-      font-size: 0.9em;
-      color: #888;
-      cursor: pointer;
-      margin-bottom: 15px;
+    .link-box {
+      background-color: #1c1c22;
+      border-radius: 12px;
+      padding: 15px;
+      margin-top: 10px;
+      transition: transform 0.2s;
     }
-    .lang span {
-      margin-left: 8px;
-      transition: 0.2s;
-    }
-    .lang span:hover {
-      color: #4db8ff;
-    }
+    .link-box:hover { transform: scale(1.02); }
+    .link-title { font-weight: 600; font-size: 1.1em; }
+    .link-sub { color: #aaa; font-size: 0.9em; }
+    a { text-decoration: none; color: inherit; display: block; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="notice" id="notice">⚠️ This website is under construction!</div>
 
-    <header>
-      <h1>MankHD</h1>
-    </header>
-
-    <div class="lang">
-      <span onclick="setLang('id')">🇮🇩 Indonesia</span> |
-      <span onclick="setLang('min')">🏴‍☠️ Minang</span> |
-      <span onclick="setLang('my')">🇲🇾 Melayu</span> |
-      <span onclick="setLang('jw')">🏴 Jawa</span> |
-      <span onclick="setLang('en')">🇬🇧 English</span>
+  <div class="header">
+    <h1>Mank</h1>
+    <div class="lang-btn" id="langBtn">🌐
+      <div class="lang-menu" id="langMenu">
+        <div data-lang="id">🇮🇩 Indonesia</div>
+        <div data-lang="en">🇬🇧 English</div>
+        <div data-lang="mn">🥥 Minang</div>
+        <div data-lang="my">🌺 Melayu</div>
+        <div data-lang="jw">🦜 Jawa</div>
+      </div>
     </div>
-
-    <section>
-      <h2 id="socialTitle">Media Sosial</h2>
-      <div class="card"><a href="https://open.spotify.com/user/313mbibfxncafuknwthj4b5mwrem?si=6r5PUhqdSDGvuswUGtY49g" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" alt="Spotify">Spotify</a></div>
-      <div class="card"><a href="https://www.youtube.com/@manghd" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">YouTube</a></div>
-      <div class="card"><a href="https://github.com/mankhd" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub">GitHub</a></div>
-      <div class="card"><a href="https://discord.gg/k65TACdzwR" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord">Discord</a></div>
-      <div class="card"><a href="https://sociabuzz.com/mankhd/donate" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/929/929564.png" alt="Sociabuzz">SosialBuzz</a></div>
-      <div class="card"><a href="https://saweria.co/manks" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/4248/4248443.png" alt="Saweria">Saweria</a></div>
-    </section>
   </div>
 
+  <h2 id="gameTitle">Aku Main</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="https://tr.rbxcdn.com/7a167d1b69a49b0cf3d49d8c1a6e7c1c/420/420/Image/Png" alt="Roblox">
+      <div class="link-title">Roblox</div>
+      <div class="link-sub">mankhad</div>
+    </div>
+    <div class="card">
+      <img src="ayamgg.png" alt="Stumble Guys">
+      <div class="link-title">Stumble Guys</div>
+      <div class="link-sub">ELZ|Mank</div>
+    </div>
+  </div>
+
+  <h2 id="donateTitle">Donate Me</h2>
+  <a href="https://sociabuzz.com/mankhd/donate" target="_blank">
+    <div class="link-box">
+      <div class="link-title">SociaBuzz</div>
+      <div class="link-sub">MankHD</div>
+    </div>
+  </a>
+  <a href="https://saweria.co/manks" target="_blank">
+    <div class="link-box">
+      <div class="link-title">Saweria</div>
+      <div class="link-sub">manks</div>
+    </div>
+  </a>
+
+  <h2 id="socialTitle">Media Sosial</h2>
+  <a href="https://open.spotify.com/user/313mbibfxncafuknwthj4b5mwrem?si=6r5PUhqdSDGvuswUGtY49g" target="_blank">
+    <div class="link-box">
+      <div class="link-title">Spotify</div>
+      <div class="link-sub">Mank</div>
+    </div>
+  </a>
+  <a href="https://www.youtube.com/@manghd" target="_blank">
+    <div class="link-box">
+      <div class="link-title">YouTube</div>
+      <div class="link-sub">manghd</div>
+    </div>
+  </a>
+  <a href="https://github.com/mankhd" target="_blank">
+    <div class="link-box">
+      <div class="link-title">GitHub</div>
+      <div class="link-sub">mankhd</div>
+    </div>
+  </a>
+  <a href="https://discord.gg/k65TACdzwR" target="_blank">
+    <div class="link-box">
+      <div class="link-title">Discord</div>
+      <div class="link-sub">ELZ Clan • SG</div>
+    </div>
+  </a>
+
   <script>
-    function setLang(lang) {
-      const notice = document.getElementById("notice");
-      const socialTitle = document.getElementById("socialTitle");
+    const langBtn = document.getElementById("langBtn");
+    const langMenu = document.getElementById("langMenu");
+    const gameTitle = document.getElementById("gameTitle");
+    const donateTitle = document.getElementById("donateTitle");
+    const socialTitle = document.getElementById("socialTitle");
 
-      const translations = {
-        id: {
-          notice: "⚠️ Situs ini sedang dalam pengerjaan!",
-          social: "Media Sosial"
-        },
-        en: {
-          notice: "⚠️ This website is under construction!",
-          social: "Social Media"
-        },
-        my: {
-          notice: "⚠️ Laman ini sedang diselenggara!",
-          social: "Media Sosial"
-        },
-        jw: {
-          notice: "⚠️ Situs iki lagi digawe!",
-          social: "Media Sosial"
-        },
-        min: {
-          notice: "⚠️ Situs ko sedang diolah!",
-          social: "Media Sosial"
-        }
-      };
+    langBtn.addEventListener("click", () => {
+      langMenu.classList.toggle("active");
+    });
 
-      if (translations[lang]) {
-        notice.textContent = translations[lang].notice;
-        socialTitle.textContent = translations[lang].social;
+    const translations = {
+      id: {
+        gameTitle: "Aku Main",
+        donateTitle: "Donate Me",
+        socialTitle: "Media Sosial"
+      },
+      en: {
+        gameTitle: "I Play",
+        donateTitle: "Support Me",
+        socialTitle: "Social Media"
+      },
+      mn: {
+        gameTitle: "Ambo Main",
+        donateTitle: "Bantu Ambo",
+        socialTitle: "Sosial Ambo"
+      },
+      my: {
+        gameTitle: "Saya Main",
+        donateTitle: "Derma Saya",
+        socialTitle: "Media Sosial"
+      },
+      jw: {
+        gameTitle: "Aku Dolanan",
+        donateTitle: "Paring Sumbangan",
+        socialTitle: "Medhia Sosial"
       }
-    }
+    };
+
+    langMenu.querySelectorAll("div").forEach(option => {
+      option.addEventListener("click", () => {
+        const lang = option.getAttribute("data-lang");
+        gameTitle.textContent = translations[lang].gameTitle;
+        donateTitle.textContent = translations[lang].donateTitle;
+        socialTitle.textContent = translations[lang].socialTitle;
+        langMenu.classList.remove("active");
+      });
+    });
   </script>
 </body>
 </html>
