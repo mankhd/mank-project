@@ -1,47 +1,139 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sedang dalam Pengerjaan</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+  <title>MankHD | Links</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
-      background-color: #f2f2f2;
-      color: #333;
-      font-family: 'Lilita One', cursive;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      background-color: #121212;
+      color: #eaeaea;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
+      padding: 20px;
     }
-
     .container {
+      max-width: 800px;
+      margin: auto;
+    }
+    header {
       text-align: center;
+      margin-bottom: 40px;
     }
-
-    h1 {
-      font-size: 3em;
-      color: #ff9900;
-      -webkit-text-stroke: 2px #000;
-      /* Outline untuk browser WebKit */
-      text-stroke: 2px #000;
-      /* Outline umum (tidak semua browser dukung) */
+    header h1 {
+      font-weight: 600;
+      font-size: 2em;
+      color: #4db8ff;
     }
-
-    p {
+    .notice {
+      background: #1f1f1f;
+      color: #f7b733;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-size: 0.9em;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    h2 {
       font-size: 1.2em;
+      color: #ffffff;
+      margin-bottom: 15px;
+    }
+    .card {
+      background: #1e1e1e;
+      padding: 15px 20px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      transition: 0.3s;
+    }
+    .card:hover {
+      background: #2a2a2a;
+      transform: translateY(-2px);
+    }
+    .card img {
+      width: 24px;
+      height: 24px;
+      margin-right: 15px;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+    .lang {
+      text-align: right;
+      font-size: 0.9em;
+      color: #888;
+      cursor: pointer;
+    }
+    .lang span {
+      margin-left: 8px;
     }
   </style>
 </head>
-
 <body>
   <div class="container">
-    <h1>🚧 Sedang dalam Pengerjaan 🚧</h1>
-    <p>Mohon bersabar, halaman ini sedang diperbarui.</p>
+    <div class="notice">⚠️ This website is under construction!</div>
+
+    <header>
+      <h1>MankHD</h1>
+    </header>
+
+    <div class="lang">
+      🇮🇩 <span>Indonesia</span> |
+      🏴‍☠️ <span>Minang</span> |
+      🇲🇾 <span>Melayu</span> |
+      🏴 <span>Jawa</span> |
+      🇬🇧 <span>English</span>
+    </div>
+
+    <section>
+      <h2>Media Sosial</h2>
+      <div class="card">
+        <a href="https://open.spotify.com/user/313mbibfxncafuknwthj4b5mwrem?si=6r5PUhqdSDGvuswUGtY49g" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" alt="Spotify">
+          Spotify
+        </a>
+      </div>
+      <div class="card">
+        <a href="https://www.youtube.com/@manghd" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+          YouTube
+        </a>
+      </div>
+      <div class="card">
+        <a href="https://github.com/mankhd" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub">
+          GitHub
+        </a>
+      </div>
+      <div class="card">
+        <a href="https://discord.gg/k65TACdzwR" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord">
+          Discord
+        </a>
+      </div>
+      <div class="card">
+        <a href="https://sociabuzz.com/mankhd/donate" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/929/929564.png" alt="Sociabuzz">
+          SosialBuzz
+        </a>
+      </div>
+      <div class="card">
+        <a href="https://saweria.co/manks" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/4248/4248443.png" alt="Saweria">
+          Saweria
+        </a>
+      </div>
+    </section>
   </div>
 </body>
-
 </html>
