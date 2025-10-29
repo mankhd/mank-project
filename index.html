@@ -73,67 +73,77 @@
       font-size: 0.9em;
       color: #888;
       cursor: pointer;
+      margin-bottom: 15px;
     }
     .lang span {
       margin-left: 8px;
+      transition: 0.2s;
+    }
+    .lang span:hover {
+      color: #4db8ff;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="notice">⚠️ This website is under construction!</div>
+    <div class="notice" id="notice">⚠️ This website is under construction!</div>
 
     <header>
       <h1>MankHD</h1>
     </header>
 
     <div class="lang">
-      🇮🇩 <span>Indonesia</span> |
-      🏴‍☠️ <span>Minang</span> |
-      🇲🇾 <span>Melayu</span> |
-      🏴 <span>Jawa</span> |
-      🇬🇧 <span>English</span>
+      <span onclick="setLang('id')">🇮🇩 Indonesia</span> |
+      <span onclick="setLang('min')">🏴‍☠️ Minang</span> |
+      <span onclick="setLang('my')">🇲🇾 Melayu</span> |
+      <span onclick="setLang('jw')">🏴 Jawa</span> |
+      <span onclick="setLang('en')">🇬🇧 English</span>
     </div>
 
     <section>
-      <h2>Media Sosial</h2>
-      <div class="card">
-        <a href="https://open.spotify.com/user/313mbibfxncafuknwthj4b5mwrem?si=6r5PUhqdSDGvuswUGtY49g" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" alt="Spotify">
-          Spotify
-        </a>
-      </div>
-      <div class="card">
-        <a href="https://www.youtube.com/@manghd" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
-          YouTube
-        </a>
-      </div>
-      <div class="card">
-        <a href="https://github.com/mankhd" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub">
-          GitHub
-        </a>
-      </div>
-      <div class="card">
-        <a href="https://discord.gg/k65TACdzwR" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord">
-          Discord
-        </a>
-      </div>
-      <div class="card">
-        <a href="https://sociabuzz.com/mankhd/donate" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/929/929564.png" alt="Sociabuzz">
-          SosialBuzz
-        </a>
-      </div>
-      <div class="card">
-        <a href="https://saweria.co/manks" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/4248/4248443.png" alt="Saweria">
-          Saweria
-        </a>
-      </div>
+      <h2 id="socialTitle">Media Sosial</h2>
+      <div class="card"><a href="https://open.spotify.com/user/313mbibfxncafuknwthj4b5mwrem?si=6r5PUhqdSDGvuswUGtY49g" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" alt="Spotify">Spotify</a></div>
+      <div class="card"><a href="https://www.youtube.com/@manghd" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">YouTube</a></div>
+      <div class="card"><a href="https://github.com/mankhd" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub">GitHub</a></div>
+      <div class="card"><a href="https://discord.gg/k65TACdzwR" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord">Discord</a></div>
+      <div class="card"><a href="https://sociabuzz.com/mankhd/donate" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/929/929564.png" alt="Sociabuzz">SosialBuzz</a></div>
+      <div class="card"><a href="https://saweria.co/manks" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/4248/4248443.png" alt="Saweria">Saweria</a></div>
     </section>
   </div>
+
+  <script>
+    function setLang(lang) {
+      const notice = document.getElementById("notice");
+      const socialTitle = document.getElementById("socialTitle");
+
+      const translations = {
+        id: {
+          notice: "⚠️ Situs ini sedang dalam pengerjaan!",
+          social: "Media Sosial"
+        },
+        en: {
+          notice: "⚠️ This website is under construction!",
+          social: "Social Media"
+        },
+        my: {
+          notice: "⚠️ Laman ini sedang diselenggara!",
+          social: "Media Sosial"
+        },
+        jw: {
+          notice: "⚠️ Situs iki lagi digawe!",
+          social: "Media Sosial"
+        },
+        min: {
+          notice: "⚠️ Situs ko sedang diolah!",
+          social: "Media Sosial"
+        }
+      };
+
+      if (translations[lang]) {
+        notice.textContent = translations[lang].notice;
+        socialTitle.textContent = translations[lang].social;
+      }
+    }
+  </script>
 </body>
 </html>
