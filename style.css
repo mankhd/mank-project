@@ -1,0 +1,217 @@
+* {
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0b0b0b;
+  color: white;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 720px;
+  margin: auto;
+  padding: 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.title {
+  position: relative;
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #ff8a00, #ff005e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.aurora {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.aurora__item {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle at center,
+      rgba(255, 136, 0, 0.2),
+      rgba(255, 0, 110, 0.15),
+      transparent 80%);
+  filter: blur(90px);
+  animation: aurora-border 12s infinite ease-in-out alternate;
+}
+
+.aurora__item:nth-child(1) {
+  background: radial-gradient(circle at center, rgba(255, 136, 0, 0.25), transparent 70%);
+  animation: aurora-1 22s infinite linear;
+}
+
+.aurora__item:nth-child(2) {
+  background: radial-gradient(circle at center, rgba(255, 0, 136, 0.25), transparent 70%);
+  animation: aurora-2 20s infinite linear;
+}
+
+.aurora__item:nth-child(3) {
+  background: radial-gradient(circle at center, rgba(255, 0, 55, 0.25), transparent 70%);
+  animation: aurora-3 25s infinite linear;
+}
+
+.aurora__item:nth-child(4) {
+  background: radial-gradient(circle at center, rgba(255, 165, 0, 0.3), transparent 70%);
+  animation: aurora-4 28s infinite linear;
+}
+
+.section {
+  margin-top: 40px;
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #ff8a00;
+  margin-bottom: 15px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.card-content {
+  margin-left: 10px;
+}
+
+.card-title {
+  font-weight: 600;
+}
+
+.card-subtitle {
+  font-size: 0.9em;
+  color: #ccc;
+}
+
+.carousel {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.carousel-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  min-width: 200px;
+  transition: 0.3s;
+}
+
+.carousel-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.language-switcher {
+  position: relative;
+}
+
+.hamburger-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.lang-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 40px;
+  background: rgba(20, 20, 20, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  flex-direction: column;
+  z-index: 10;
+  padding: 5px;
+}
+
+.lang-menu button {
+  background: none;
+  color: white;
+  border: none;
+  text-align: left;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+
+.lang-menu button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.lang-menu.show {
+  display: flex;
+}
+
+/* === Aurora Animations === */
+@keyframes aurora-1 {
+  0% { top: 0; right: 0; }
+  50% { top: 100%; right: 75%; }
+  75% { top: 100%; right: 25%; }
+  100% { top: 0; right: 0; }
+}
+
+@keyframes aurora-2 {
+  0% { top: -50%; left: 0%; }
+  60% { top: 100%; left: 75%; }
+  85% { top: 100%; left: 25%; }
+  100% { top: -50%; left: 0%; }
+}
+
+@keyframes aurora-3 {
+  0% { bottom: 0; left: 0; }
+  40% { bottom: 100%; left: 75%; }
+  65% { bottom: 40%; left: 50%; }
+  100% { bottom: 0; left: 0; }
+}
+
+@keyframes aurora-4 {
+  0% { bottom: -50%; right: 0; }
+  50% { bottom: 0%; right: 40%; }
+  90% { bottom: 50%; right: 25%; }
+  100% { bottom: -50%; right: 0; }
+}
+
+@keyframes aurora-border {
+  0% { border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%; }
+  25% { border-radius: 47% 29% 39% 49% / 61% 19% 66% 26%; }
+  50% { border-radius: 57% 23% 47% 72% / 63% 17% 66% 33%; }
+  75% { border-radius: 28% 49% 29% 100% / 93% 20% 64% 25%; }
+  100% { border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%; }
+}
