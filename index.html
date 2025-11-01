@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Mank</title>
-  <link rel="icon" href="imgs/ayamgg.png" type="image/x-icon">
-  <link href="style.css" rel="stylesheet" type="text/css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+  <link rel="icon" href="imgs/ayamgg.png" type="image/x-icon" />
+  <link href="style.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/5f61ca79dc.js" crossorigin="anonymous"></script>
   <script defer src="script.js"></script>
 </head>
 
 <body>
+  <!-- Aurora background (4 layers) -->
   <div class="aurora">
     <div class="aurora__item"></div>
     <div class="aurora__item"></div>
@@ -22,110 +23,105 @@
   </div>
 
   <div class="container">
-    <div class="navbar">
+    <header class="navbar">
       <h1 class="title">Mank</h1>
+
       <div class="language-switcher">
-        <button class="hamburger-btn" onclick="toggleLangMenu()">
-          <i class="fa-solid fa-globe"></i>
+        <button class="hamburger-btn" id="langBtn" aria-expanded="false" aria-controls="langMenu">
+          🌐
         </button>
-        <div class="lang-menu" id="langMenu">
-          <button onclick="switchLanguage('id')">🇮🇩 Indonesia</button>
-          <button onclick="switchLanguage('en')">🇬🇧 English</button>
-          <button onclick="switchLanguage('mn')">🥥 Minang</button>
-          <button onclick="switchLanguage('my')">🌺 Melayu</button>
-          <button onclick="switchLanguage('jw')">🦜 Jawa</button>
-          <button onclick="switchLanguage('su')">🌴 Sunda</button>
-          <button onclick="switchLanguage('ban')">🌊 Bali</button>
-          <button onclick="switchLanguage('de')">🇩🇪 Deutsch</button>
-          <button onclick="switchLanguage('es')">🇪🇸 Español</button>
-          <button onclick="switchLanguage('pt')">🇵🇹 Português</button>
-          <button onclick="switchLanguage('fr')">🇫🇷 Français</button>
-          <button onclick="switchLanguage('jp')">🗾 日本語</button>
+
+        <div class="lang-menu" id="langMenu" role="menu" aria-hidden="true">
+          <!-- Default bahasa = Indonesia on load -->
+          <button role="menuitem" data-lang="id">🇮🇩 Indonesia</button>
+          <button role="menuitem" data-lang="en">🇬🇧 English</button>
+          <button role="menuitem" data-lang="mn">🥥 Minang</button>
+          <button role="menuitem" data-lang="my">🌺 Melayu</button>
+          <button role="menuitem" data-lang="jw">🦜 Jawa</button>
         </div>
       </div>
-    </div>
+    </header>
 
-    <div class="section">
-      <div class="section-title">Games I Play</div>
-      <div class="carousel">
-        <div class="carousel-card">
-          <img src="imgs/roblox.svg" height="32" width="32">
-          <div class="card-content">
-            <div class="card-title">Roblox</div>
-            <div class="card-subtitle">mankhade</div>
+    <!-- CONTENT (will be translated) -->
+    <main>
+      <section class="section">
+        <div class="section-title" data-key="gamesTitle">Games I Play</div>
+
+        <div class="carousel">
+          <div class="carousel-card">
+            <img src="imgs/roblox.svg" alt="Roblox" height="32" width="32" />
+            <div class="card-content">
+              <div class="card-title" data-key="robloxTitle">Roblox</div>
+              <div class="card-subtitle" data-key="robloxSub">mankhade</div>
+            </div>
+          </div>
+
+          <div class="carousel-card">
+            <img src="imgs/stumbleguys.svg" alt="Stumble Guys" height="32" width="53" />
+            <div class="card-content">
+              <div class="card-title" data-key="stumbleTitle">Stumble Guys</div>
+              <div class="card-subtitle" data-key="stumbleSub">ELz | Mank</div>
+            </div>
           </div>
         </div>
-        <div class="carousel-card">
-          <img src="imgs/stumbleguys.svg" height="32" width="53">
-          <div class="card-content">
-            <div class="card-title">Stumble Guys</div>
-            <div class="card-subtitle">ELz | Mank</div>
-          </div>
-        </div>
-      </div>
-    </div>
+      </section>
 
-    <div class="section">
-      <div class="section-title">Donate Me</div>
-      <a href="https://sociabuzz.com/mankhd/donate" target="_blank">
-        <div class="card">
+      <section class="section">
+        <div class="section-title" data-key="donateTitle">Donate Me</div>
+
+        <a class="card" href="https://sociabuzz.com/mankhd/donate" target="_blank" rel="noopener noreferrer">
           <i class="fa-solid fa-hand-holding-heart"></i>
           <div class="card-content">
-            <div class="card-title">SociaBuzz</div>
-            <div class="card-subtitle">MankHD</div>
+            <div class="card-title" data-key="sociabuzz">SociaBuzz</div>
+            <div class="card-subtitle" data-key="sociabuzzSub">MankHD</div>
           </div>
-        </div>
-      </a>
-      <a href="https://saweria.co/manks" target="_blank">
-        <div class="card">
+        </a>
+
+        <a class="card saweria" href="https://saweria.co/manks" target="_blank" rel="noopener noreferrer">
           <i class="fa-solid fa-dollar-sign"></i>
           <div class="card-content">
-            <div class="card-title">Saweria</div>
-            <div class="card-subtitle">manks</div>
+            <div class="card-title" data-key="saweria">Saweria</div>
+            <div class="card-subtitle" data-key="saweriaSub">manks</div>
           </div>
-        </div>
-      </a>
-    </div>
+        </a>
+      </section>
 
-    <div class="section">
-      <div class="section-title">Find Me</div>
-      <a href="https://open.spotify.com/user/313mbibfxncafuknwthj4b5mwrem" target="_blank">
-        <div class="card">
+      <section class="section">
+        <div class="section-title" data-key="findTitle">Find Me</div>
+
+        <a class="card" href="https://open.spotify.com/user/313mbibfxncafuknwthj4b5mwrem" target="_blank" rel="noopener noreferrer">
           <i class="fa-brands fa-spotify"></i>
           <div class="card-content">
-            <div class="card-title">Spotify</div>
-            <div class="card-subtitle">Mank</div>
+            <div class="card-title" data-key="spotify">Spotify</div>
+            <div class="card-subtitle" data-key="spotifySub">Mank</div>
           </div>
-        </div>
-      </a>
-      <a href="https://youtube.com/@manghd/" target="_blank">
-        <div class="card">
+        </a>
+
+        <a class="card" href="https://youtube.com/@manghd/" target="_blank" rel="noopener noreferrer">
           <i class="fa-brands fa-youtube"></i>
           <div class="card-content">
-            <div class="card-title">YouTube</div>
-            <div class="card-subtitle">manghd</div>
+            <div class="card-title" data-key="youtube">YouTube</div>
+            <div class="card-subtitle" data-key="youtubeSub">manghd</div>
           </div>
-        </div>
-      </a>
-      <a href="https://github.com/mankhd/" target="_blank">
-        <div class="card">
+        </a>
+
+        <a class="card" href="https://github.com/mankhd/" target="_blank" rel="noopener noreferrer">
           <i class="fa-brands fa-github"></i>
           <div class="card-content">
-            <div class="card-title">GitHub</div>
-            <div class="card-subtitle">mankhd</div>
+            <div class="card-title" data-key="github">GitHub</div>
+            <div class="card-subtitle" data-key="githubSub">mankhd</div>
           </div>
-        </div>
-      </a>
-      <a href="https://discord.gg/k65TACdzwR" target="_blank">
-        <div class="card">
+        </a>
+
+        <a class="card discord" href="https://discord.gg/k65TACdzwR" target="_blank" rel="noopener noreferrer">
           <i class="fa-brands fa-discord"></i>
           <div class="card-content">
-            <div class="card-title">Discord</div>
-            <div class="card-subtitle">ELz Clan • SG</div>
+            <div class="card-title" data-key="discord">Discord</div>
+            <div class="card-subtitle" data-key="discordSub">ELz Clan • SG</div>
           </div>
-        </div>
-      </a>
-    </div>
+        </a>
+      </section>
+    </main>
   </div>
 </body>
 </html>
