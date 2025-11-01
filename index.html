@@ -10,11 +10,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/5f61ca79dc.js" crossorigin="anonymous"></script>
-  <script defer src="script.js"></script>
 </head>
 
-<body>
-  <!-- Aurora background (4 layers) -->
+<body class="preload">
+  <!-- Aurora background -->
   <div class="aurora">
     <div class="aurora__item"></div>
     <div class="aurora__item"></div>
@@ -24,29 +23,26 @@
 
   <div class="container">
     <header class="navbar">
-      <h1 class="title">Mank</h1>
+      <h1 class="title glow">Mank</h1>
 
       <div class="language-switcher">
-        <button class="hamburger-btn" id="langBtn" aria-expanded="false" aria-controls="langMenu">
+        <button class="hamburger-btn" id="langBtn" onclick="toggleLangMenu()">
           🌐
         </button>
 
-        <div class="lang-menu" id="langMenu" role="menu" aria-hidden="true">
-          <!-- Default bahasa = Indonesia on load -->
-          <button role="menuitem" data-lang="id">🇮🇩 Indonesia</button>
-          <button role="menuitem" data-lang="en">🇬🇧 English</button>
-          <button role="menuitem" data-lang="mn">🥥 Minang</button>
-          <button role="menuitem" data-lang="my">🌺 Melayu</button>
-          <button role="menuitem" data-lang="jw">🦜 Jawa</button>
+        <div class="lang-menu" id="langMenu">
+          <button data-lang="id">🇮🇩 Indonesia</button>
+          <button data-lang="en">🇬🇧 English</button>
+          <button data-lang="mn">🥥 Minang</button>
+          <button data-lang="my">🌺 Melayu</button>
+          <button data-lang="jw">🦜 Jawa</button>
         </div>
       </div>
     </header>
 
-    <!-- CONTENT (will be translated) -->
     <main>
       <section class="section">
         <div class="section-title" data-key="gamesTitle">Games I Play</div>
-
         <div class="carousel">
           <div class="carousel-card">
             <img src="imgs/roblox.svg" alt="Roblox" height="32" width="32" />
@@ -55,7 +51,6 @@
               <div class="card-subtitle" data-key="robloxSub">mankhade</div>
             </div>
           </div>
-
           <div class="carousel-card">
             <img src="imgs/stumbleguys.svg" alt="Stumble Guys" height="32" width="53" />
             <div class="card-content">
@@ -68,7 +63,6 @@
 
       <section class="section">
         <div class="section-title" data-key="donateTitle">Donate Me</div>
-
         <a class="card" href="https://sociabuzz.com/mankhd/donate" target="_blank" rel="noopener noreferrer">
           <i class="fa-solid fa-hand-holding-heart"></i>
           <div class="card-content">
@@ -123,5 +117,7 @@
       </section>
     </main>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
