@@ -1,102 +1,84 @@
-/* === RESET === */
+/* style.css */
+/* === BASE === */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* === BASE === */
-body {
-  font-family: "Rubik", sans-serif;
-  background-color: #0d0d0d;
-  color: #e6e6e6;
+html, body {
+  height: 100%;
+  font-family: 'Lilita One', cursive;
+  color: #f5f5f5;
+  background: radial-gradient(circle at top left, #0d0d0d, #000);
   overflow-x: hidden;
-}
-
-/* === CONTAINER === */
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-/* === NAVBAR === */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-}
-
-.title {
-  font-size: 2.4em;
-  font-weight: 700;
-  background: linear-gradient(90deg, #e6e6e6, #bfbfbf);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 /* === AURORA BACKGROUND === */
 .aurora {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
   overflow: hidden;
   z-index: -1;
 }
 
-.aurora__item {
+.aurora span {
   position: absolute;
   width: 60%;
   height: 60%;
+  background: linear-gradient(45deg, rgba(255, 136, 0, 0.3), rgba(255, 0, 128, 0.3));
   filter: blur(120px);
   border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%;
-}
-
-.aurora__item:nth-child(1) {
-  background: linear-gradient(45deg, rgba(0,255,255,0.25), rgba(255,0,255,0.25));
   animation: aurora-border 8s infinite alternate, aurora-1 18s infinite linear;
 }
-.aurora__item:nth-child(2) {
-  background: linear-gradient(60deg, rgba(255,255,0,0.25), rgba(0,255,255,0.25));
+
+.aurora span:nth-child(2) {
+  background: linear-gradient(60deg, rgba(255, 255, 0, 0.3), rgba(255, 128, 0, 0.3));
   animation: aurora-border 10s infinite alternate, aurora-2 22s infinite linear;
 }
-.aurora__item:nth-child(3) {
-  background: linear-gradient(120deg, rgba(255,0,255,0.25), rgba(255,255,255,0.25));
+
+.aurora span:nth-child(3) {
+  background: linear-gradient(120deg, rgba(255, 0, 255, 0.3), rgba(255, 255, 255, 0.2));
   animation: aurora-border 12s infinite alternate, aurora-3 25s infinite linear;
 }
-.aurora__item:nth-child(4) {
-  background: linear-gradient(80deg, rgba(0,255,128,0.25), rgba(128,0,255,0.25));
+
+.aurora span:nth-child(4) {
+  background: linear-gradient(80deg, rgba(255, 100, 0, 0.3), rgba(255, 255, 0, 0.3));
   animation: aurora-border 14s infinite alternate, aurora-4 28s infinite linear;
 }
 
-/* === AURORA ANIMATION === */
+/* === AURORA KEYFRAMES === */
 @keyframes aurora-1 {
   0% { top: 0; right: 0; }
   50% { top: 100%; right: 75%; }
   75% { top: 100%; right: 25%; }
   100% { top: 0; right: 0; }
 }
+
 @keyframes aurora-2 {
   0% { top: -50%; left: 0; }
   60% { top: 100%; left: 75%; }
   85% { top: 100%; left: 25%; }
   100% { top: -50%; left: 0; }
 }
+
 @keyframes aurora-3 {
   0% { bottom: 0; left: 0; }
   40% { bottom: 100%; left: 75%; }
   65% { bottom: 40%; left: 50%; }
   100% { bottom: 0; left: 0; }
 }
+
 @keyframes aurora-4 {
   0% { bottom: -50%; right: 0; }
   50% { bottom: 0%; right: 40%; }
   90% { bottom: 50%; right: 25%; }
   100% { bottom: -50%; right: 0; }
 }
+
 @keyframes aurora-border {
   0% { border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%; }
   25% { border-radius: 47% 29% 39% 49% / 61% 19% 66% 26%; }
@@ -105,117 +87,60 @@ body {
   100% { border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%; }
 }
 
-/* === SECTION === */
-.section {
-  margin-top: 50px;
+/* === TITLE TEXT === */
+h1 {
+  font-size: 4em;
+  text-align: center;
+  color: #fef9f2;
+  text-shadow: 0 0 15px rgba(255, 200, 100, 0.6),
+               0 0 30px rgba(255, 150, 50, 0.4);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+  animation: glow 4s ease-in-out infinite alternate;
 }
 
-.section-title {
-  font-size: 1.3em;
-  font-weight: 600;
-  color: #e6e6e6;
-  margin-bottom: 15px;
+@keyframes glow {
+  from { text-shadow: 0 0 10px rgba(255, 180, 50, 0.6); }
+  to { text-shadow: 0 0 25px rgba(255, 100, 0, 0.8); }
 }
 
-/* === CARD === */
-.card {
-  display: flex;
-  align-items: center;
-  background: #1a1a1a;
-  border-radius: 12px;
-  padding: 15px;
-  margin-bottom: 12px;
-  transition: 0.3s;
-}
-
-.card:hover {
-  background: #222;
-  transform: translateY(-3px);
-}
-
-.card i {
-  font-size: 28px;
-  margin-right: 15px;
-  color: #cfcfcf;
-}
-
-.card-content .card-title {
-  font-size: 1.05em;
-  font-weight: 600;
-  color: #fff;
-}
-
-.card-content .card-subtitle {
-  font-size: 0.9em;
-  color: #aaa;
-}
-
-/* === GAME CARDS === */
-.carousel {
-  display: flex;
-  gap: 15px;
-}
-
-.carousel-card {
-  display: flex;
-  align-items: center;
-  background: #1a1a1a;
-  padding: 12px;
-  border-radius: 12px;
-  width: 45%;
-  transition: 0.3s;
-  background-size: cover;
-  background-position: center;
-}
-
-.carousel-card:hover {
-  background: #242424;
-  transform: scale(1.03);
-}
-
-/* === LANGUAGE BUTTON === */
-.language-switcher {
-  position: relative;
-}
-
-.hamburger-btn {
+/* === LANGUAGE SWITCHER === */
+.lang-btn {
+  position: fixed;
+  top: 20px;
+  right: 30px;
   cursor: pointer;
-  background: rgba(255,255,255,0.05);
-  border: none;
-  color: #fff;
-  font-size: 18px;
-  padding: 10px 12px;
+  background: rgba(255,255,255,0.08);
   border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 20px;
+  color: #f7e5c5;
   transition: 0.3s;
 }
 
-.hamburger-btn:hover {
+.lang-btn:hover {
   background: rgba(255,255,255,0.15);
 }
 
-.lang-menu {
+#langMenu {
   display: none;
   position: absolute;
   right: 0;
-  top: 50px;
-  background: #111;
+  top: 55px;
+  background: rgba(20, 20, 20, 0.95);
   border-radius: 10px;
-  padding: 6px;
-  z-index: 10;
+  padding: 8px;
+  box-shadow: 0 0 20px rgba(255, 180, 80, 0.3);
 }
 
-.lang-menu button {
-  background: none;
-  border: none;
-  color: #e6e6e6;
-  width: 100%;
-  text-align: left;
-  padding: 8px 10px;
+#langMenu div {
+  padding: 8px 14px;
   cursor: pointer;
-  font-size: 0.9em;
-  transition: 0.2s;
+  font-size: 16px;
+  color: #fef9f2;
+  transition: 0.3s;
 }
 
-.lang-menu button:hover {
-  background: rgba(255,255,255,0.08);
+#langMenu div:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffd27f;
 }
