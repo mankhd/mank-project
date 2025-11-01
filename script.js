@@ -1,159 +1,49 @@
-// Simple translation system (default = Indonesian)
-const translations = {
-  id: {
-    gamesTitle: "Games I Play",
-    robloxTitle: "Roblox",
-    robloxSub: "mankhade",
-    stumbleTitle: "Stumble Guys",
-    stumbleSub: "ELz | Mank",
-    donateTitle: "Donate Me",
-    sociabuzz: "SociaBuzz",
-    sociabuzzSub: "MankHD",
-    saweria: "Saweria",
-    saweriaSub: "manks",
-    findTitle: "Find Me",
-    spotify: "Spotify",
-    spotifySub: "Mank",
-    youtube: "YouTube",
-    youtubeSub: "manghd",
-    github: "GitHub",
-    githubSub: "mankhd",
-    discord: "Discord",
-    discordSub: "ELz Clan • SG"
-  },
-  en: {
-    gamesTitle: "Games I Play",
-    robloxTitle: "Roblox",
-    robloxSub: "mankhade",
-    stumbleTitle: "Stumble Guys",
-    stumbleSub: "ELz | Mank",
-    donateTitle: "Donate Me",
-    sociabuzz: "SociaBuzz",
-    sociabuzzSub: "MankHD",
-    saweria: "Saweria",
-    saweriaSub: "manks",
-    findTitle: "Find Me",
-    spotify: "Spotify",
-    spotifySub: "Mank",
-    youtube: "YouTube",
-    youtubeSub: "manghd",
-    github: "GitHub",
-    githubSub: "mankhd",
-    discord: "Discord",
-    discordSub: "ELz Clan • SG"
-  },
-  mn: { /* Minang - example translations; feel free to edit */
-    gamesTitle: "Game nan Ambo Mainkan",
-    robloxTitle: "Roblox",
-    robloxSub: "mankhade",
-    stumbleTitle: "Stumble Guys",
-    stumbleSub: "ELz | Mank",
-    donateTitle: "Donasi",
-    sociabuzz: "SociaBuzz",
-    sociabuzzSub: "MankHD",
-    saweria: "Saweria",
-    saweriaSub: "manks",
-    findTitle: "Cari Ambo",
-    spotify: "Spotify",
-    spotifySub: "Mank",
-    youtube: "YouTube",
-    youtubeSub: "manghd",
-    github: "GitHub",
-    githubSub: "mankhd",
-    discord: "Discord",
-    discordSub: "ELz Clan • SG"
-  },
-  my: { /* Melayu */
-    gamesTitle: "Permainan Saya",
-    robloxTitle: "Roblox",
-    robloxSub: "mankhade",
-    stumbleTitle: "Stumble Guys",
-    stumbleSub: "ELz | Mank",
-    donateTitle: "Sumbangan",
-    sociabuzz: "SociaBuzz",
-    sociabuzzSub: "MankHD",
-    saweria: "Saweria",
-    saweriaSub: "manks",
-    findTitle: "Temui Saya",
-    spotify: "Spotify",
-    spotifySub: "Mank",
-    youtube: "YouTube",
-    youtubeSub: "manghd",
-    github: "GitHub",
-    githubSub: "mankhd",
-    discord: "Discord",
-    discordSub: "ELz Clan • SG"
-  },
-  jw: { /* Jawa (basic) */
-    gamesTitle: "Game sing Tak Main",
-    robloxTitle: "Roblox",
-    robloxSub: "mankhade",
-    stumbleTitle: "Stumble Guys",
-    stumbleSub: "ELz | Mank",
-    donateTitle: "Sumbang",
-    sociabuzz: "SociaBuzz",
-    sociabuzzSub: "MankHD",
-    saweria: "Saweria",
-    saweriaSub: "manks",
-    findTitle: "Golek Aku",
-    spotify: "Spotify",
-    spotifySub: "Mank",
-    youtube: "YouTube",
-    youtubeSub: "manghd",
-    github: "GitHub",
-    githubSub: "mankhd",
-    discord: "Discord",
-    discordSub: "ELz Clan • SG"
-  }
-};
+// fade-in page on load
+window.addEventListener("load", () => {
+  document.body.classList.remove("preload");
+  document.body.classList.add("loaded");
+});
 
-const langBtn = document.getElementById('langBtn');
-const langMenu = document.getElementById('langMenu');
-const langButtons = Array.from(langMenu.querySelectorAll('button'));
-
-// default language = Indonesian
-let currentLang = 'id';
+// language menu logic
+const langBtn = document.getElementById("langBtn");
+const langMenu = document.getElementById("langMenu");
+const langButtons = langMenu.querySelectorAll("button");
+let currentLang = "id";
 applyTranslations(currentLang);
 
-// Toggle dropdown
 function toggleLangMenu() {
-  const isActive = langMenu.classList.contains('active');
-  if (isActive) closeMenu();
-  else openMenu();
-}
-function openMenu() {
-  langMenu.classList.add('active');
-  langMenu.setAttribute('aria-hidden','false');
-  langBtn.setAttribute('aria-expanded','true');
-}
-function closeMenu() {
-  langMenu.classList.remove('active');
-  langMenu.setAttribute('aria-hidden','true');
-  langBtn.setAttribute('aria-expanded','false');
+  langMenu.classList.toggle("active");
 }
 
-// Clicking language option
-langButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
+document.addEventListener("click", (e) => {
+  if (!langMenu.contains(e.target) && e.target !== langBtn) {
+    langMenu.classList.remove("active");
+  }
+});
+
+langButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
     const lang = btn.dataset.lang;
-    if (!lang || !translations[lang]) return;
-    currentLang = lang;
-    applyTranslations(lang);
-    closeMenu();
+    if (lang && translations[lang]) {
+      currentLang = lang;
+      applyTranslations(lang);
+      langMenu.classList.remove("active");
+    }
   });
 });
 
-// click outside to close
-document.addEventListener('click', (e) => {
-  const target = e.target;
-  if (!langMenu.contains(target) && target !== langBtn) closeMenu();
-});
+const translations = {
+  id: { gamesTitle: "Games I Play", donateTitle: "Donate Me", findTitle: "Find Me" },
+  en: { gamesTitle: "Games I Play", donateTitle: "Donate Me", findTitle: "Find Me" },
+  mn: { gamesTitle: "Game nan Ambo Mainkan", donateTitle: "Donasi", findTitle: "Cari Ambo" },
+  my: { gamesTitle: "Permainan Saya", donateTitle: "Sumbangan", findTitle: "Temui Saya" },
+  jw: { gamesTitle: "Game sing Tak Main", donateTitle: "Sumbang", findTitle: "Golek Aku" },
+};
 
-// Apply translations to elements with data-key
 function applyTranslations(lang) {
-  const dict = translations[lang] || translations['id'];
-  document.querySelectorAll('[data-key]').forEach(el => {
-    const k = el.getAttribute('data-key');
-    if (k && dict[k]) el.textContent = dict[k];
+  const dict = translations[lang] || translations.id;
+  document.querySelectorAll("[data-key]").forEach((el) => {
+    const key = el.dataset.key;
+    if (dict[key]) el.textContent = dict[key];
   });
 }
