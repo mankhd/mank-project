@@ -8,22 +8,22 @@
   <link href="style.css" rel="stylesheet" type="text/css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/5f61ca79dc.js" crossorigin="anonymous"></script>
+  <script defer src="script.js"></script>
 </head>
 
 <body>
+  <div class="aurora">
+    <div class="aurora__item"></div>
+    <div class="aurora__item"></div>
+    <div class="aurora__item"></div>
+    <div class="aurora__item"></div>
+  </div>
+
   <div class="container">
     <div class="navbar">
-      <h1 class="title">Mank
-        <div class="aurora">
-          <div class="aurora__item"></div>
-          <div class="aurora__item"></div>
-          <div class="aurora__item"></div>
-          <div class="aurora__item"></div>
-        </div>
-      </h1>
-
+      <h1 class="title">Mank</h1>
       <div class="language-switcher">
         <button class="hamburger-btn" onclick="toggleLangMenu()">
           <i class="fa-solid fa-globe"></i>
@@ -34,24 +34,19 @@
           <button onclick="switchLanguage('mn')">🥥 Minang</button>
           <button onclick="switchLanguage('my')">🌺 Melayu</button>
           <button onclick="switchLanguage('jw')">🦜 Jawa</button>
+          <button onclick="switchLanguage('su')">🌴 Sunda</button>
+          <button onclick="switchLanguage('ban')">🌊 Bali</button>
+          <button onclick="switchLanguage('de')">🇩🇪 Deutsch</button>
+          <button onclick="switchLanguage('es')">🇪🇸 Español</button>
+          <button onclick="switchLanguage('pt')">🇵🇹 Português</button>
+          <button onclick="switchLanguage('fr')">🇫🇷 Français</button>
+          <button onclick="switchLanguage('jp')">🗾 日本語</button>
         </div>
       </div>
     </div>
 
     <div class="section">
-      <div class="section-title" data-translate="project">Project</div>
-      <div class="card">
-        <img src="imgs/ayamgg.png" alt="FindMyID" height="64" width="64">
-        <div class="card-content">
-          <div class="card-title">Find My ID</div>
-          <div class="card-subtitle" data-translate="position">Buatan Mank</div>
-          <div class="card-description" data-translate="desc">Buatan Mank</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="section-title" data-translate="gamesIPlay">Games I Play</div>
+      <div class="section-title">Games I Play</div>
       <div class="carousel">
         <div class="carousel-card">
           <img src="imgs/roblox.svg" height="32" width="32">
@@ -64,55 +59,14 @@
           <img src="imgs/stumbleguys.svg" height="32" width="53">
           <div class="card-content">
             <div class="card-title">Stumble Guys</div>
-            <div class="card-subtitle">ELz|Mank</div>
+            <div class="card-subtitle">ELz | Mank</div>
           </div>
         </div>
       </div>
     </div>
 
     <div class="section">
-      <div class="section-title" data-translate="findMe">Find Me</div>
-
-      <a href="https://open.spotify.com/user/313mbibfxncafuknwthj4b5mwrem" target="_blank">
-        <div class="card">
-          <i class="fa-brands fa-spotify"></i>
-          <div class="card-content">
-            <div class="card-title">Spotify</div>
-            <div class="card-subtitle">Mank</div>
-          </div>
-        </div>
-      </a>
-
-      <a href="https://youtube.com/@manghd" target="_blank">
-        <div class="card">
-          <i class="fa-brands fa-youtube"></i>
-          <div class="card-content">
-            <div class="card-title">YouTube</div>
-            <div class="card-subtitle">manghd</div>
-          </div>
-        </div>
-      </a>
-
-      <a href="https://github.com/mankhd" target="_blank">
-        <div class="card">
-          <i class="fa-brands fa-github"></i>
-          <div class="card-content">
-            <div class="card-title">GitHub</div>
-            <div class="card-subtitle">mankhd</div>
-          </div>
-        </div>
-      </a>
-
-      <a href="https://discord.gg/k65TACdzwR" target="_blank">
-        <div class="card">
-          <i class="fa-brands fa-discord"></i>
-          <div class="card-content">
-            <div class="card-title">Discord</div>
-            <div class="card-subtitle">ELz Clan • SG</div>
-          </div>
-        </div>
-      </a>
-
+      <div class="section-title">Donate Me</div>
       <a href="https://sociabuzz.com/mankhd/donate" target="_blank">
         <div class="card">
           <i class="fa-solid fa-hand-holding-heart"></i>
@@ -122,7 +76,6 @@
           </div>
         </div>
       </a>
-
       <a href="https://saweria.co/manks" target="_blank">
         <div class="card">
           <i class="fa-solid fa-dollar-sign"></i>
@@ -133,8 +86,46 @@
         </div>
       </a>
     </div>
-  </div>
 
-  <script src="script.js"></script>
+    <div class="section">
+      <div class="section-title">Find Me</div>
+      <a href="https://open.spotify.com/user/313mbibfxncafuknwthj4b5mwrem" target="_blank">
+        <div class="card">
+          <i class="fa-brands fa-spotify"></i>
+          <div class="card-content">
+            <div class="card-title">Spotify</div>
+            <div class="card-subtitle">Mank</div>
+          </div>
+        </div>
+      </a>
+      <a href="https://youtube.com/@manghd/" target="_blank">
+        <div class="card">
+          <i class="fa-brands fa-youtube"></i>
+          <div class="card-content">
+            <div class="card-title">YouTube</div>
+            <div class="card-subtitle">manghd</div>
+          </div>
+        </div>
+      </a>
+      <a href="https://github.com/mankhd/" target="_blank">
+        <div class="card">
+          <i class="fa-brands fa-github"></i>
+          <div class="card-content">
+            <div class="card-title">GitHub</div>
+            <div class="card-subtitle">mankhd</div>
+          </div>
+        </div>
+      </a>
+      <a href="https://discord.gg/k65TACdzwR" target="_blank">
+        <div class="card">
+          <i class="fa-brands fa-discord"></i>
+          <div class="card-content">
+            <div class="card-title">Discord</div>
+            <div class="card-subtitle">ELz Clan • SG</div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
 </body>
 </html>
