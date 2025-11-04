@@ -1,53 +1,35 @@
 window.addEventListener("load",()=>{
   document.body.classList.remove("preload");
-  document.body.classList.add("loaded");
 });
 
+// Dropdown toggle
 const langBtn=document.getElementById("langBtn");
 const langMenu=document.getElementById("langMenu");
-const langButtons=langMenu.querySelectorAll("button");
-let currentLang="id";
-applyTranslations(currentLang);
-
-function toggleLangMenu(){
-  langMenu.classList.toggle("active");
-}
+function toggleLangMenu(){langMenu.classList.toggle("active");}
 document.addEventListener("click",e=>{
-  if(!langMenu.contains(e.target)&&e.target!==langBtn){
-    langMenu.classList.remove("active");
-  }
+  if(!langMenu.contains(e.target)&&e.target!==langBtn){langMenu.classList.remove("active");}
 });
 
-langButtons.forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    const lang=btn.dataset.lang;
-    if(lang&&translations[lang]){
-      currentLang=lang;
-      applyTranslations(lang);
-      updateLangIcon(lang);
-      langMenu.classList.remove("active");
-    }
+// Translasi seperti desiliun
+const translations={
+  id:{gamesIPlay:"Games I Play",donation:"Support Me",findMe:"Find Me"},
+  en:{gamesIPlay:"Games I Play",donation:"Support Me",findMe:"Find Me"},
+  mn:{gamesIPlay:"Game nan Ambo Mainkan",donation:"Donasi",findMe:"Cari Ambo"},
+  my:{gamesIPlay:"Permainan Saya",donation:"Sumbangan",findMe:"Temui Saya"},
+  jw:{gamesIPlay:"Game sing Tak Main",donation:"Sumbang",findMe:"Golek Aku"}
+};
+
+function switchLanguage(lang){
+  const texts=translations[lang]||translations.id;
+  document.querySelectorAll("[data-translate]").forEach(el=>{
+    const key=el.getAttribute("data-translate");
+    if(texts[key]) el.textContent=texts[key];
   });
-});
+  updateLangIcon(lang);
+  langMenu.classList.remove("active");
+}
 
 function updateLangIcon(lang){
   const icons={id:"🇮🇩",en:"🇬🇧",mn:"🥥",my:"🌺",jw:"🦜"};
   langBtn.textContent=icons[lang]+" 🌐";
-}
-
-const translations={
-  id:{gamesTitle:"Games I Play",robloxTitle:"Roblox",robloxSub:"mankhade",stumbleTitle:"Stumble Guys",stumbleSub:"ELz | Mank",donateTitle:"Support Me",sociabuzz:"SociaBuzz",sociabuzzSub:"MankHD",saweria:"Saweria",saweriaSub:"manks",findTitle:"Find Me",spotify:"Spotify",spotifySub:"Mank",youtube:"YouTube",youtubeSub:"manghd",github:"GitHub",githubSub:"mankhd",discord:"Discord",discordSub:"ELz Clan • SG"},
-  en:{gamesTitle:"Games I Play",robloxTitle:"Roblox",robloxSub:"mankhade",stumbleTitle:"Stumble Guys",stumbleSub:"ELz | Mank",donateTitle:"Support Me",sociabuzz:"SociaBuzz",sociabuzzSub:"MankHD",saweria:"Saweria",saweriaSub:"manks",findTitle:"Find Me",spotify:"Spotify",spotifySub:"Mank",youtube:"YouTube",youtubeSub:"manghd",github:"GitHub",githubSub:"mankhd",discord:"Discord",discordSub:"ELz Clan • SG"},
-  mn:{gamesTitle:"Game nan Ambo Mainkan",robloxTitle:"Roblox",robloxSub:"mankhade",stumbleTitle:"Stumble Guys",stumbleSub:"ELz | Mank",donateTitle:"Donasi",sociabuzz:"SociaBuzz",sociabuzzSub:"MankHD",saweria:"Saweria",saweriaSub:"manks",findTitle:"Cari Ambo",spotify:"Spotify",spotifySub:"Mank",youtube:"YouTube",youtubeSub:"manghd",github:"GitHub",githubSub:"mankhd",discord:"Discord",discordSub:"ELz Clan • SG"},
-  my:{gamesTitle:"Permainan Saya",robloxTitle:"Roblox",robloxSub:"mankhade",stumbleTitle:"Stumble Guys",stumbleSub:"ELz | Mank",donateTitle:"Sumbangan",sociabuzz:"SociaBuzz",sociabuzzSub:"MankHD",saweria:"Saweria",saweriaSub:"manks",findTitle:"Temui Saya",spotify:"Spotify",spotifySub:"Mank",youtube:"YouTube",youtubeSub:"manghd",github:"GitHub",githubSub:"mankhd",discord:"Discord",discordSub:"ELz Clan • SG"},
-  jw:{gamesTitle:"Game sing Tak Main",robloxTitle:"Roblox",robloxSub:"mankhade",stumbleTitle:"Stumble Guys",stumbleSub:"ELz | Mank",donateTitle:"Sumbang",sociabuzz:"SociaBuzz",sociabuzzSub:"MankHD",saweria:"Saweria",saweriaSub:"manks",findTitle:"Golek Aku",spotify:"Spotify",spotifySub:"Mank",youtube:"YouTube",youtubeSub:"manghd",github:"GitHub",githubSub:"mankhd",discord:"Discord",discordSub:"ELz Clan • SG"}
-};
-
-function applyTranslations(lang){
-  const dict=translations[lang]||translations.id;
-  document.querySelectorAll("[data-key]").forEach(el=>{
-    const key=el.dataset.key;
-    if(dict[key])el.textContent=dict[key];
-  });
-  updateLangIcon(lang);
 }
