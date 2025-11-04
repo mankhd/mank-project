@@ -2,93 +2,100 @@
 html,body{height:100%;width:100%}
 body{
   font-family:"Lilita One",cursive;
-  background:#050505;
-  color:#f4e6c1;
+  background:linear-gradient(180deg,#0a1a3a,#003d80,#007bff,#3dc1ff);
+  color:#fffbe6;
   overflow-x:hidden;
-  overflow-y:auto;
-  transition:opacity 1s ease,transform 1s ease;
+  min-height:100vh;
+  transition:opacity 1s ease;
 }
-body.preload{opacity:0;transform:scale(1.02)}
-body.loaded{opacity:1;transform:scale(1)}
+body.preload{opacity:0}
+body.loaded{opacity:1}
 
+/* AURORA BACKGROUND */
 .aurora{
   position:fixed;inset:0;width:100%;height:100%;
   overflow:hidden;z-index:-1;pointer-events:none;
-  animation:fadeIn 2s ease forwards;
 }
 .aurora__item{
-  position:absolute;width:200%;height:200%;filter:blur(160px);opacity:.7;
-  animation:move 28s ease-in-out infinite alternate;
+  position:absolute;width:200%;height:200%;
+  filter:blur(160px);opacity:.55;animation:move 35s ease-in-out infinite alternate;
 }
-.aurora__item:nth-child(1){background:radial-gradient(circle at 20% 30%,#007bff,transparent 60%)}
-.aurora__item:nth-child(2){background:radial-gradient(circle at 70% 40%,#00eaff,transparent 60%);animation-delay:6s}
-.aurora__item:nth-child(3){background:radial-gradient(circle at 40% 80%,#6f00ff,transparent 60%);animation-delay:12s}
-.aurora__item:nth-child(4){background:radial-gradient(circle at 80% 70%,#ffb84d,transparent 60%);animation-delay:18s}
+.aurora__item:nth-child(1){background:radial-gradient(circle at 20% 30%,#00b3ff,transparent 60%)}
+.aurora__item:nth-child(2){background:radial-gradient(circle at 70% 50%,#007bff,transparent 60%);animation-delay:10s}
+.aurora__item:nth-child(3){background:radial-gradient(circle at 40% 70%,#00fff0,transparent 60%);animation-delay:18s}
+.aurora__item:nth-child(4){background:radial-gradient(circle at 80% 80%,#f7d07a,transparent 60%);animation-delay:25s}
 @keyframes move{0%{transform:translate(-10%,-10%)}50%{transform:translate(10%,10%)}100%{transform:translate(-5%,5%)}}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
+/* NAVBAR */
 .navbar{
   display:flex;justify-content:space-between;align-items:center;
-  padding:26px 36px;color:#ffecb3;z-index:10;position:relative;
+  padding:22px 36px;position:relative;z-index:10;
 }
-.title{font-size:2.2rem;text-shadow:0 0 10px rgba(255,230,150,.2)}
-.title.glow{animation:glow 4s ease-in-out infinite alternate}
-@keyframes glow{
-  from{text-shadow:0 0 8px rgba(0,128,255,.3)}
-  to{text-shadow:0 0 16px rgba(0,220,255,.6)}
+.title{
+  font-size:2.4rem;
+  background:linear-gradient(90deg,#3dc1ff,#7df9ff,#fff0a8,#3dc1ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-size:200% auto;
+  animation:flow 5s linear infinite;
+}
+@keyframes flow{
+  0%{background-position:0%}
+  100%{background-position:200%}
 }
 
-/* Dropdown bahasa */
+/* LANGUAGE MENU */
 .language-switcher{position:relative}
 .hamburger-btn{
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.2);
-  color:#fff;padding:8px 12px;border-radius:12px;
-  cursor:pointer;font-size:1.05rem;backdrop-filter:blur(6px);
-  transition:.2s;box-shadow:0 6px 18px rgba(0,0,0,.5)
+  background:rgba(255,255,255,.1);
+  border:none;
+  color:#fff;
+  padding:10px 12px;
+  border-radius:12px;
+  font-size:1.05rem;
+  cursor:pointer;
+  backdrop-filter:blur(6px);
+  transition:.2s;
 }
-.hamburger-btn:hover{transform:translateY(-2px)}
+.hamburger-btn:hover{background:rgba(255,255,255,.2)}
 .lang-menu{
-  position:absolute;right:0;top:52px;width:200px;background:rgba(0,0,0,.85);
-  border-radius:12px;border:1px solid rgba(255,255,255,.1);
-  padding:6px;backdrop-filter:blur(12px);
-  opacity:0;pointer-events:none;transform:translateY(-10px);
-  transition:all .25s ease;z-index:100;
+  position:absolute;right:0;top:50px;
+  width:200px;background:rgba(0,0,0,.85);
+  border-radius:12px;padding:6px;
+  opacity:0;pointer-events:none;
+  transform:translateY(-10px);
+  transition:all .25s ease;
 }
 .lang-menu.active{opacity:1;pointer-events:auto;transform:translateY(0)}
 .lang-menu button{
-  width:100%;background:transparent;border:none;color:#f4e6c1;
-  text-align:left;padding:10px 14px;border-radius:8px;
-  display:flex;align-items:center;gap:10px;cursor:pointer;transition:.2s
+  width:100%;background:none;border:none;
+  color:#fffbe6;text-align:left;padding:10px 14px;
+  border-radius:8px;cursor:pointer;
 }
-.lang-menu button:hover{background:rgba(255,255,255,.08);padding-left:18px}
+.lang-menu button:hover{background:rgba(255,255,255,.1)}
 
-/* Layout konten */
+/* MAIN LAYOUT */
 .container{max-width:960px;margin:auto;padding:20px}
-.section{margin-bottom:30px}
-.section-title{
-  font-size:1.4rem;margin-bottom:12px;color:#ffecb3;
-  text-shadow:0 0 8px rgba(255,215,100,.2)
-}
-.cards,.card{display:flex;align-items:center}
-.cards{flex-wrap:wrap;gap:14px}
+.section{margin-bottom:28px}
+.section-title{font-size:1.4rem;margin-bottom:12px;text-shadow:0 0 8px rgba(255,255,255,.4)}
 .card{
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:14px;padding:12px 16px;margin-bottom:10px;
-  color:#fff;text-decoration:none;gap:12px;flex:1;min-width:230px;
-  transition:all .25s ease;backdrop-filter:blur(6px)
+  display:flex;align-items:center;gap:12px;
+  background:rgba(255,255,255,.05);
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.15);
+  padding:12px 16px;
+  text-decoration:none;
+  color:#fffbe6;
+  margin-bottom:10px;
+  transition:.3s;
 }
-.card:hover{transform:translateY(-4px);border-color:rgba(0,255,255,.4)}
-.card i{font-size:1.6rem;color:#ffd76b}
+.card:hover{transform:translateY(-4px);border-color:#00fff0}
+.card i{font-size:1.6rem}
 .card.discord i{color:#5865F2}
 .card.saweria i{color:#FF7A00}
-.card-info{display:flex;flex-direction:column}
-.card-title{font-size:1.05rem}
-.card-subtitle{font-size:.9rem;color:#e8d8b2}
-
+.card-title{font-size:1.1rem}
+.card-subtitle{font-size:.95rem;color:#f4e6c1}
 @media(max-width:768px){
+  .title{font-size:2rem}
   .navbar{padding:18px}
-  .title{font-size:1.7rem}
-  .container{padding:16px}
 }
