@@ -21,102 +21,75 @@
     <div class="aurora__item"></div>
   </div>
 
-  <div class="container">
-    <header class="navbar">
-      <h1 class="title glow">Mank</h1>
+  <header class="navbar">
+    <h1 class="title glow">Mank</h1>
+    <div class="language-switcher">
+      <button class="hamburger-btn" id="langBtn" onclick="toggleLangMenu()">🌐</button>
+      <div class="lang-menu" id="langMenu">
+        <button data-lang="id">🇮🇩 Indonesia</button>
+        <button data-lang="en">🇬🇧 English</button>
+        <button data-lang="mn">🥥 Minang</button>
+        <button data-lang="my">🌺 Melayu</button>
+        <button data-lang="jw">🦜 Jawa</button>
+      </div>
+    </div>
+  </header>
 
-      <div class="language-switcher">
-        <button class="hamburger-btn" id="langBtn" onclick="toggleLangMenu()">
-          🌐
-        </button>
-
-        <div class="lang-menu" id="langMenu">
-          <button data-lang="id">🇮🇩 Indonesia</button>
-          <button data-lang="en">🇬🇧 English</button>
-          <button data-lang="mn">🥥 Minang</button>
-          <button data-lang="my">🌺 Melayu</button>
-          <button data-lang="jw">🦜 Jawa</button>
+  <main class="container fade">
+    <section class="section">
+      <div class="section-title" data-key="gamesTitle">Games I Play</div>
+      <div class="cards">
+        <div class="card">
+          <img src="imgs/roblox.svg" alt="Roblox" height="36" />
+          <div class="card-info">
+            <div class="card-title" data-key="robloxTitle">Roblox</div>
+            <div class="card-subtitle" data-key="robloxSub">mankhade</div>
+          </div>
+        </div>
+        <div class="card">
+          <img src="imgs/stumbleguys.svg" alt="Stumble Guys" height="36" />
+          <div class="card-info">
+            <div class="card-title" data-key="stumbleTitle">Stumble Guys</div>
+            <div class="card-subtitle" data-key="stumbleSub">ELz|Mank</div>
+          </div>
         </div>
       </div>
-    </header>
+    </section>
 
-    <main>
-      <section class="section">
-        <div class="section-title" data-key="gamesTitle">Games I Play</div>
-        <div class="carousel">
-          <div class="carousel-card">
-            <img src="imgs/roblox.svg" alt="Roblox" height="32" width="32" />
-            <div class="card-content">
-              <div class="card-title" data-key="robloxTitle">Roblox</div>
-              <div class="card-subtitle" data-key="robloxSub">mankhade</div>
-            </div>
-          </div>
-          <div class="carousel-card">
-            <img src="imgs/stumbleguys.svg" alt="Stumble Guys" height="32" width="53" />
-            <div class="card-content">
-              <div class="card-title" data-key="stumbleTitle">Stumble Guys</div>
-              <div class="card-subtitle" data-key="stumbleSub">ELz | Mank</div>
-            </div>
-          </div>
+    <section class="section">
+      <div class="section-title" data-key="donateTitle">Support Me</div>
+      <a class="card saweria" href="https://saweria.co/manks" target="_blank">
+        <i class="fa-solid fa-dollar-sign"></i>
+        <div class="card-info">
+          <div class="card-title" data-key="saweria">Saweria</div>
+          <div class="card-subtitle" data-key="saweriaSub">manks</div>
         </div>
-      </section>
+      </a>
+      <a class="card" href="https://sociabuzz.com/mankhd/donate" target="_blank">
+        <i class="fa-solid fa-hand-holding-heart"></i>
+        <div class="card-info">
+          <div class="card-title" data-key="sociabuzz">SociaBuzz</div>
+          <div class="card-subtitle" data-key="sociabuzzSub">MankHD</div>
+        </div>
+      </a>
+    </section>
 
-      <section class="section">
-        <div class="section-title" data-key="donateTitle">Donate Me</div>
-        <a class="card" href="https://sociabuzz.com/mankhd/donate" target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-hand-holding-heart"></i>
-          <div class="card-content">
-            <div class="card-title" data-key="sociabuzz">SociaBuzz</div>
-            <div class="card-subtitle" data-key="sociabuzzSub">MankHD</div>
-          </div>
-        </a>
-
-        <a class="card saweria" href="https://saweria.co/manks" target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-dollar-sign"></i>
-          <div class="card-content">
-            <div class="card-title" data-key="saweria">Saweria</div>
-            <div class="card-subtitle" data-key="saweriaSub">manks</div>
-          </div>
-        </a>
-      </section>
-
-      <section class="section">
-        <div class="section-title" data-key="findTitle">Find Me</div>
-
-        <a class="card" href="https://open.spotify.com/user/313mbibfxncafuknwthj4b5mwrem" target="_blank" rel="noopener noreferrer">
-          <i class="fa-brands fa-spotify"></i>
-          <div class="card-content">
-            <div class="card-title" data-key="spotify">Spotify</div>
-            <div class="card-subtitle" data-key="spotifySub">Mank</div>
-          </div>
-        </a>
-
-        <a class="card" href="https://youtube.com/@manghd/" target="_blank" rel="noopener noreferrer">
-          <i class="fa-brands fa-youtube"></i>
-          <div class="card-content">
-            <div class="card-title" data-key="youtube">YouTube</div>
-            <div class="card-subtitle" data-key="youtubeSub">manghd</div>
-          </div>
-        </a>
-
-        <a class="card" href="https://github.com/mankhd/" target="_blank" rel="noopener noreferrer">
-          <i class="fa-brands fa-github"></i>
-          <div class="card-content">
-            <div class="card-title" data-key="github">GitHub</div>
-            <div class="card-subtitle" data-key="githubSub">mankhd</div>
-          </div>
-        </a>
-
-        <a class="card discord" href="https://discord.gg/k65TACdzwR" target="_blank" rel="noopener noreferrer">
-          <i class="fa-brands fa-discord"></i>
-          <div class="card-content">
-            <div class="card-title" data-key="discord">Discord</div>
-            <div class="card-subtitle" data-key="discordSub">ELz Clan • SG</div>
-          </div>
-        </a>
-      </section>
-    </main>
-  </div>
+    <section class="section">
+      <div class="section-title" data-key="findTitle">Find Me</div>
+      <a class="card" href="https://open.spotify.com/user/313mbibfxncafuknwthj4b5mwrem" target="_blank">
+        <i class="fa-brands fa-spotify"></i><div class="card-info"><div class="card-title" data-key="spotify">Spotify</div><div class="card-subtitle" data-key="spotifySub">Mank</div></div>
+      </a>
+      <a class="card" href="https://youtube.com/@manghd" target="_blank">
+        <i class="fa-brands fa-youtube"></i><div class="card-info"><div class="card-title" data-key="youtube">YouTube</div><div class="card-subtitle" data-key="youtubeSub">manghd</div></div>
+      </a>
+      <a class="card" href="https://github.com/mankhd" target="_blank">
+        <i class="fa-brands fa-github"></i><div class="card-info"><div class="card-title" data-key="github">GitHub</div><div class="card-subtitle" data-key="githubSub">mankhd</div></div>
+      </a>
+      <a class="card discord" href="https://discord.gg/k65TACdzwR" target="_blank">
+        <i class="fa-brands fa-discord"></i><div class="card-info"><div class="card-title" data-key="discord">Discord</div><div class="card-subtitle" data-key="discordSub">ELz Clan • SG</div></div>
+      </a>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>
