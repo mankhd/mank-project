@@ -12,7 +12,7 @@ document.addEventListener("click",e=>{
 
 // Translasi seperti desiliun
 const translations={
-  id:{gamesIPlay:"Aku Main",donation:"Dukung Aku,findMe:"Cari Aku"},
+  id:{gamesIPlay:"Aku Main",donation:"Dukung Aku",findMe:"Cari Aku"},
   en:{gamesIPlay:"Games I Play",donation:"Support Me",findMe:"Find Me"},
   mn:{gamesIPlay:"Game nan Ambo Mainkan",donation:"Donasi",findMe:"Cari Ambo"},
   my:{gamesIPlay:"Permainan Saya",donation:"Sumbangan",findMe:"Temui Saya"},
